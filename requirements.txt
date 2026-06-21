@@ -1,1 +1,3 @@
-
+# Local workflow (main.py / src/) uses only the Python standard library.
+# The ASI:One-compatible agent (agent.py) needs uAgents:
+uagents>=0.25

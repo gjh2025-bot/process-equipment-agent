@@ -20,9 +20,12 @@ from supplier_matcher import match_suppliers
 from rfq_generator import generate_rfq
 
 
-EQUIPMENT_DB_PATH = os.path.join("data", "equipment_database.json")
-SUPPLIER_DB_PATH = os.path.join("data", "supplier_database.json")
-OUTPUT_DIR = "outputs"
+# Anchor data/output paths to this file's directory so the workflow works no
+# matter which directory it is launched from (CLI or agent).
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+EQUIPMENT_DB_PATH = os.path.join(PROJECT_ROOT, "data", "equipment_database.json")
+SUPPLIER_DB_PATH = os.path.join(PROJECT_ROOT, "data", "supplier_database.json")
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, "outputs")
 OUTPUT_JSON_PATH = os.path.join(OUTPUT_DIR, "sample_output.json")
 OUTPUT_REPORT_PATH = os.path.join(OUTPUT_DIR, "sample_report.md")
 
@@ -34,8 +37,17 @@ def load_json(path):
 
 
 def run_workflow(input_path):
-    """Run the full local MVP workflow."""
+    """Run the full local MVP workflow from an input file path."""
     process_input = load_json(input_path)
+    return run_workflow_from_dict(process_input)
+
+
+def run_workflow_from_dict(process_input):
+    """Run the full local MVP workflow from an already-parsed input dict.
+
+    Exposed separately so an agent wrapper can call the workflow in-memory
+    without writing the input to a file first.
+    """
     equipment_database = load_json(EQUIPMENT_DB_PATH)
     supplier_database = load_json(SUPPLIER_DB_PATH)
 
