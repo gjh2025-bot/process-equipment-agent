@@ -65,10 +65,16 @@ def llm_reply(grounding, user_text):
         "You are a process equipment selection assistant for early-stage "
         "chemical process scale-up. A deterministic tool has ALREADY produced "
         "the analysis below. Answer the user using ONLY this analysis - never "
-        "invent equipment, prices, suppliers, or numbers. Be concise, friendly, "
-        "and conversational. For a greeting, give a one or two sentence intro "
-        "and offer to analyze or show the demo - do NOT dump the whole report. "
-        "When giving recommendations, remind the user this is preliminary, "
+        "invent equipment, prices, suppliers, or numbers.\n\n"
+        "STRICT OUTPUT RULES:\n"
+        "- Reply in ENGLISH only.\n"
+        "- Reply with a direct, plain-text answer for a human to read.\n"
+        "- Do NOT emit tool calls, function calls, or any XML/JSON/tags such "
+        "as <tool_call> or <arg_value>. Just write the answer text.\n"
+        "- Be concise, friendly, and conversational.\n"
+        "- For a greeting, give a one or two sentence intro and offer to "
+        "analyze or show the demo - do NOT dump the whole report.\n"
+        "- When giving recommendations, remind the user this is preliminary, "
         "mock-data decision support.\n\n"
         "=== ANALYSIS (ground truth) ===\n{}".format(grounding)
     )
@@ -79,9 +85,16 @@ def llm_reply(grounding, user_text):
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_text or "hello"},
             ],
+            temperature=0.3,
             max_tokens=1024,
         )
-        return str(response.choices[0].message.content)
+        reply = str(response.choices[0].message.content).strip()
+        # Guard against the agentic model emitting tool-call/markup garbage.
+        # If it does, signal failure so the caller falls back to a clean reply.
+        markers = ("<tool_call", "<arg_", "<function", "</tool_call")
+        if not reply or any(m in reply.lower() for m in markers):
+            return None
+        return reply
     except Exception:
         return None
 
@@ -285,6 +298,16 @@ async def handle_message(ctx: Context, sender: str, msg: ChatMessage):
 @protocol.on_message(ChatAcknowledgement)
 async def handle_ack(ctx: Context, sender: str, msg: ChatAcknowledgement):
     pass
+
+
+@agent.on_event("startup")
+async def on_startup(ctx: Context):
+    if _llm_client:
+        ctx.logger.info("LLM mode ACTIVE (ASI:One). Conversational replies enabled.")
+    else:
+        ctx.logger.info(
+            "LLM mode OFF (no ASI_ONE_API_KEY). Using rule-based replies."
+        )
 
 
 agent.include(protocol, publish_manifest=True)
