@@ -1,0 +1,705 @@
+{
+  "database_name": "Mock equipment database for MnO2 nanoparticle process MVP",
+  "database_scope": "Preliminary equipment screening for lab-to-bench-pilot scale hydrothermal nanoparticle synthesis",
+  "notes": [
+    "This is mock data for MVP demonstration only.",
+    "The values are approximate and should not be used for final engineering design.",
+    "The goal is to support equipment screening logic, not certified process design."
+  ],
+  "equipment": [
+    {
+      "equipment_id": "MIX-001",
+      "equipment_type": "precursor_mixing",
+      "name": "Jacketed glass mixing vessel",
+      "unit_operation": "precursor solution preparation and heated mixing",
+      "suitable_process_steps": [
+        "precursor solution preparation",
+        "heated mixing"
+      ],
+      "suitable_phase": [
+        "liquid",
+        "liquid-solid slurry"
+      ],
+      "working_volume_l_range": [
+        0.5,
+        5
+      ],
+      "temperature_c_range": [
+        20,
+        90
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "borosilicate glass",
+        "PTFE stirrer components"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "high",
+      "typical_applications": [
+        "small-batch precursor preparation",
+        "aqueous solution mixing",
+        "low-temperature heated stirring"
+      ],
+      "pros": [
+        "Good visual observation",
+        "Low metallic contamination risk",
+        "Easy to clean",
+        "Suitable for lab-to-bench precursor preparation"
+      ],
+      "cons": [
+        "Not suitable for pressurized hydrothermal reaction",
+        "Fragile compared with metal vessels",
+        "Limited scale"
+      ],
+      "risk_notes": [
+        "Do not use for sealed hydrothermal operation.",
+        "Only suitable before the pressure-rated reaction step."
+      ]
+    },
+    {
+      "equipment_id": "MIX-002",
+      "equipment_type": "precursor_mixing",
+      "name": "316L stainless steel jacketed stirred tank",
+      "unit_operation": "precursor solution preparation and heated mixing",
+      "suitable_process_steps": [
+        "precursor solution preparation",
+        "heated mixing"
+      ],
+      "suitable_phase": [
+        "liquid",
+        "liquid-solid slurry"
+      ],
+      "working_volume_l_range": [
+        2,
+        50
+      ],
+      "temperature_c_range": [
+        20,
+        120
+      ],
+      "pressure_bar_range": [
+        1,
+        2
+      ],
+      "contact_materials": [
+        "316L stainless steel"
+      ],
+      "contamination_control_level": "medium",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "low pressure only",
+      "cleanability": "medium",
+      "typical_applications": [
+        "pilot precursor preparation",
+        "aqueous slurry mixing",
+        "heated batch mixing"
+      ],
+      "pros": [
+        "Scalable to pilot volume",
+        "Mechanically robust",
+        "Compatible with jacketed heating or cooling"
+      ],
+      "cons": [
+        "Potential metallic contamination if surface finish is poor",
+        "May require passivation and cleaning validation"
+      ],
+      "risk_notes": [
+        "Check whether manganese chemistry or acidic byproducts can attack product-contact surfaces.",
+        "Not intended as the primary sealed hydrothermal reactor."
+      ]
+    },
+    {
+      "equipment_id": "RXN-001",
+      "equipment_type": "hydrothermal_reactor",
+      "name": "Teflon-lined stainless steel batch autoclave",
+      "unit_operation": "hydrothermal batch reaction",
+      "suitable_process_steps": [
+        "hydrothermal batch reaction"
+      ],
+      "suitable_phase": [
+        "liquid",
+        "liquid-solid slurry"
+      ],
+      "working_volume_l_range": [
+        0.1,
+        5
+      ],
+      "temperature_c_range": [
+        80,
+        220
+      ],
+      "pressure_bar_range": [
+        1,
+        30
+      ],
+      "contact_materials": [
+        "PTFE liner",
+        "stainless steel pressure shell"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "pressure-rated sealed operation",
+      "cleanability": "medium",
+      "typical_applications": [
+        "hydrothermal nanoparticle synthesis",
+        "sealed aqueous reactions",
+        "battery material precursor synthesis"
+      ],
+      "pros": [
+        "Suitable for sealed hydrothermal operation",
+        "PTFE liner reduces metallic contamination",
+        "Appropriate for small bench-pilot batches",
+        "Directly matches the lab-scale synthesis concept"
+      ],
+      "cons": [
+        "Batch operation only",
+        "Limited heat transfer and mixing depending on design",
+        "Scale-up may require multiple parallel vessels",
+        "Cooling and depressurization procedure must be controlled"
+      ],
+      "risk_notes": [
+        "Pressure rating must be verified at 180 C with autogenous pressure.",
+        "Do not overfill vessel.",
+        "Thermal ramp and cooling profile may affect MnO2 morphology."
+      ]
+    },
+    {
+      "equipment_id": "RXN-002",
+      "equipment_type": "hydrothermal_reactor",
+      "name": "Stirred pressure reactor with PTFE-lined wetted parts",
+      "unit_operation": "hydrothermal batch reaction",
+      "suitable_process_steps": [
+        "hydrothermal batch reaction"
+      ],
+      "suitable_phase": [
+        "liquid",
+        "liquid-solid slurry"
+      ],
+      "working_volume_l_range": [
+        1,
+        20
+      ],
+      "temperature_c_range": [
+        80,
+        250
+      ],
+      "pressure_bar_range": [
+        1,
+        50
+      ],
+      "contact_materials": [
+        "PTFE-lined wetted parts",
+        "316L stainless steel pressure body"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "high",
+      "pressure_rating": "pressure-rated sealed operation",
+      "cleanability": "medium",
+      "typical_applications": [
+        "pilot hydrothermal synthesis",
+        "controlled pressure batch reaction",
+        "slurry-phase nanoparticle synthesis"
+      ],
+      "pros": [
+        "Better temperature and mixing control than static autoclave",
+        "Can support larger bench-pilot batch volumes",
+        "Pressure and temperature monitoring can be integrated",
+        "Good fit for scale-up study"
+      ],
+      "cons": [
+        "Higher cost",
+        "More complex sealing and maintenance",
+        "Agitator and seals may introduce contamination or cleaning challenges"
+      ],
+      "risk_notes": [
+        "Confirm product-contact materials and seal compatibility.",
+        "Agitation may change particle morphology compared with static lab autoclave.",
+        "Requires pressure relief and safe operating procedures."
+      ]
+    },
+    {
+      "equipment_id": "RXN-003",
+      "equipment_type": "hydrothermal_reactor",
+      "name": "Open atmospheric stirred tank reactor",
+      "unit_operation": "reaction",
+      "suitable_process_steps": [
+        "heated mixing",
+        "atmospheric reaction"
+      ],
+      "suitable_phase": [
+        "liquid",
+        "liquid-solid slurry"
+      ],
+      "working_volume_l_range": [
+        1,
+        100
+      ],
+      "temperature_c_range": [
+        20,
+        100
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "316L stainless steel",
+        "glass-lined steel"
+      ],
+      "contamination_control_level": "medium",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "medium",
+      "typical_applications": [
+        "aqueous precipitation",
+        "heated mixing",
+        "non-pressurized slurry reaction"
+      ],
+      "pros": [
+        "Simple and scalable",
+        "Easy sampling and feeding",
+        "Lower cost than pressure reactor"
+      ],
+      "cons": [
+        "Not suitable for sealed hydrothermal synthesis above boiling point",
+        "Cannot reproduce autogenous pressure conditions",
+        "May not match lab-scale hydrothermal product morphology"
+      ],
+      "risk_notes": [
+        "Reject for the 180 C sealed hydrothermal step.",
+        "May be useful only for precursor preparation."
+      ]
+    },
+    {
+      "equipment_id": "SEP-001",
+      "equipment_type": "solid_liquid_separation",
+      "name": "Bench-top centrifuge",
+      "unit_operation": "solid-liquid separation",
+      "suitable_process_steps": [
+        "solid-liquid separation"
+      ],
+      "suitable_phase": [
+        "liquid-solid slurry",
+        "fine particle suspension"
+      ],
+      "working_volume_l_range": [
+        0.01,
+        1
+      ],
+      "temperature_c_range": [
+        5,
+        40
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "polypropylene centrifuge tubes",
+        "polycarbonate containers"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "medium",
+      "typical_applications": [
+        "lab-scale nanoparticle separation",
+        "small batch slurry clarification"
+      ],
+      "pros": [
+        "Works well for fine particles at lab scale",
+        "Matches the reference lab method",
+        "Low product-contact metal contamination"
+      ],
+      "cons": [
+        "Limited volume",
+        "Labor-intensive at pilot scale",
+        "Not ideal for repeated 2 L production batches"
+      ],
+      "risk_notes": [
+        "May be too small for the 2 L bench-pilot target.",
+        "Useful as lab reference but not preferred for pilot production."
+      ]
+    },
+    {
+      "equipment_id": "SEP-002",
+      "equipment_type": "solid_liquid_separation",
+      "name": "Pilot basket centrifuge",
+      "unit_operation": "solid-liquid separation",
+      "suitable_process_steps": [
+        "solid-liquid separation",
+        "washing"
+      ],
+      "suitable_phase": [
+        "liquid-solid slurry",
+        "fine particle suspension"
+      ],
+      "working_volume_l_range": [
+        1,
+        20
+      ],
+      "temperature_c_range": [
+        5,
+        60
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "316L stainless steel",
+        "polymer liner optional"
+      ],
+      "contamination_control_level": "medium",
+      "temperature_control_precision": "low",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "medium",
+      "typical_applications": [
+        "pilot slurry dewatering",
+        "fine particle separation",
+        "solid washing"
+      ],
+      "pros": [
+        "Better scale fit than bench-top centrifuge",
+        "Can handle fine particles better than some filters",
+        "May combine dewatering and washing"
+      ],
+      "cons": [
+        "Possible metallic contact surfaces",
+        "Cleaning validation may be harder",
+        "Higher cost than simple filtration"
+      ],
+      "risk_notes": [
+        "Check liner or product-contact material to minimize contamination.",
+        "Confirm particle retention and cake handling for MnO2 nanoparticles."
+      ]
+    },
+    {
+      "equipment_id": "SEP-003",
+      "equipment_type": "solid_liquid_separation",
+      "name": "Lab or pilot vacuum filtration setup",
+      "unit_operation": "solid-liquid separation",
+      "suitable_process_steps": [
+        "solid-liquid separation",
+        "washing"
+      ],
+      "suitable_phase": [
+        "liquid-solid slurry",
+        "fine particle suspension"
+      ],
+      "working_volume_l_range": [
+        0.1,
+        5
+      ],
+      "temperature_c_range": [
+        5,
+        60
+      ],
+      "pressure_bar_range": [
+        0.2,
+        1
+      ],
+      "contact_materials": [
+        "glass",
+        "PTFE",
+        "polypropylene",
+        "ceramic filter media"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "low",
+      "pressure_rating": "vacuum operation",
+      "cleanability": "high",
+      "typical_applications": [
+        "small pilot slurry filtration",
+        "particle washing",
+        "battery material powder recovery"
+      ],
+      "pros": [
+        "Simple and low cost",
+        "Good contamination control with appropriate filter media",
+        "Allows repeated DI water washing",
+        "Good for MVP bench-pilot scale"
+      ],
+      "cons": [
+        "Fine nanoparticles may blind the filter",
+        "Filtration rate may be slow",
+        "Manual operation"
+      ],
+      "risk_notes": [
+        "Filter media pore size and cake permeability must be tested.",
+        "May need pre-wetting or staged filtration."
+      ]
+    },
+    {
+      "equipment_id": "SEP-004",
+      "equipment_type": "solid_liquid_separation",
+      "name": "Agitated nutsche filter dryer",
+      "unit_operation": "solid-liquid separation and washing",
+      "suitable_process_steps": [
+        "solid-liquid separation",
+        "washing",
+        "drying"
+      ],
+      "suitable_phase": [
+        "liquid-solid slurry",
+        "fine particle suspension",
+        "wet cake"
+      ],
+      "working_volume_l_range": [
+        5,
+        100
+      ],
+      "temperature_c_range": [
+        20,
+        120
+      ],
+      "pressure_bar_range": [
+        0.1,
+        6
+      ],
+      "contact_materials": [
+        "316L stainless steel",
+        "Hastelloy optional",
+        "PTFE-lined surfaces optional"
+      ],
+      "contamination_control_level": "medium",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "vacuum and low positive pressure capable",
+      "cleanability": "medium",
+      "typical_applications": [
+        "pharmaceutical solids processing",
+        "specialty chemical filtration",
+        "slurry washing and drying"
+      ],
+      "pros": [
+        "Combines filtration, washing, and drying in one enclosed unit",
+        "Good containment",
+        "More scalable than simple vacuum filtration"
+      ],
+      "cons": [
+        "High cost for MVP",
+        "May be oversized for 2 L batch",
+        "Product-contact metal contamination must be assessed"
+      ],
+      "risk_notes": [
+        "Likely future scale option rather than first bench-pilot option.",
+        "Check whether filter cake properties are suitable."
+      ]
+    },
+    {
+      "equipment_id": "WASH-001",
+      "equipment_type": "washing",
+      "name": "Repeated DI water reslurry washing vessel",
+      "unit_operation": "washing",
+      "suitable_process_steps": [
+        "washing to neutral pH",
+        "contamination reduction"
+      ],
+      "suitable_phase": [
+        "wet solid",
+        "liquid-solid slurry"
+      ],
+      "working_volume_l_range": [
+        0.5,
+        10
+      ],
+      "temperature_c_range": [
+        20,
+        60
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "glass",
+        "PTFE",
+        "polypropylene",
+        "316L stainless steel"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "low",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "high",
+      "typical_applications": [
+        "removal of soluble salts",
+        "washing battery material powders",
+        "neutral pH endpoint washing"
+      ],
+      "pros": [
+        "Simple and flexible",
+        "Directly addresses residual K+, sulfate, and acid contamination",
+        "Can be paired with vacuum filtration or centrifugation"
+      ],
+      "cons": [
+        "May require multiple wash cycles",
+        "Generates wastewater",
+        "Manual endpoint monitoring unless automated"
+      ],
+      "risk_notes": [
+        "Conductivity and pH should be monitored to confirm washing completeness.",
+        "Avoid product loss during repeated washing."
+      ]
+    },
+    {
+      "equipment_id": "DRY-001",
+      "equipment_type": "drying",
+      "name": "Vacuum oven",
+      "unit_operation": "drying",
+      "suitable_process_steps": [
+        "vacuum drying"
+      ],
+      "suitable_phase": [
+        "wet cake",
+        "powder"
+      ],
+      "working_volume_l_range": [
+        0.1,
+        10
+      ],
+      "temperature_c_range": [
+        30,
+        120
+      ],
+      "pressure_bar_range": [
+        0.001,
+        1
+      ],
+      "contact_materials": [
+        "stainless steel chamber",
+        "glass tray",
+        "PTFE liner optional"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "vacuum operation",
+      "cleanability": "medium",
+      "typical_applications": [
+        "battery powder drying",
+        "low-temperature drying",
+        "moisture removal from sensitive solids"
+      ],
+      "pros": [
+        "Matches the reference drying method",
+        "Lower drying temperature than atmospheric oven",
+        "Suitable for small pilot batches",
+        "Reduces oxidation or contamination risk compared with open drying"
+      ],
+      "cons": [
+        "Batch operation",
+        "Limited throughput",
+        "Drying uniformity depends on tray loading"
+      ],
+      "risk_notes": [
+        "Drying temperature and time should be validated against MnO2 phase and hydration requirements.",
+        "Avoid cross-contamination from previous powders."
+      ]
+    },
+    {
+      "equipment_id": "DRY-002",
+      "equipment_type": "drying",
+      "name": "Tray dryer or convection oven",
+      "unit_operation": "drying",
+      "suitable_process_steps": [
+        "drying"
+      ],
+      "suitable_phase": [
+        "wet cake",
+        "powder"
+      ],
+      "working_volume_l_range": [
+        1,
+        50
+      ],
+      "temperature_c_range": [
+        40,
+        200
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "stainless steel trays",
+        "glass trays optional"
+      ],
+      "contamination_control_level": "medium",
+      "temperature_control_precision": "medium",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "medium",
+      "typical_applications": [
+        "general powder drying",
+        "pilot-scale solids drying"
+      ],
+      "pros": [
+        "Simple and scalable",
+        "Lower cost than specialized vacuum dryers",
+        "Can process larger tray loads"
+      ],
+      "cons": [
+        "More exposure to air and airborne contamination",
+        "May be less suitable for contamination-sensitive battery powders",
+        "Drying may be less uniform"
+      ],
+      "risk_notes": [
+        "Use only if contamination control is acceptable.",
+        "Temperature overshoot should be avoided."
+      ]
+    },
+    {
+      "equipment_id": "COL-001",
+      "equipment_type": "powder_collection",
+      "name": "Clean powder collection container",
+      "unit_operation": "powder collection",
+      "suitable_process_steps": [
+        "powder collection",
+        "temporary product storage"
+      ],
+      "suitable_phase": [
+        "dry powder"
+      ],
+      "working_volume_l_range": [
+        0.1,
+        20
+      ],
+      "temperature_c_range": [
+        20,
+        60
+      ],
+      "pressure_bar_range": [
+        1,
+        1
+      ],
+      "contact_materials": [
+        "HDPE",
+        "polypropylene",
+        "glass"
+      ],
+      "contamination_control_level": "high",
+      "temperature_control_precision": "not applicable",
+      "pressure_rating": "atmospheric only",
+      "cleanability": "high",
+      "typical_applications": [
+        "battery powder collection",
+        "clean dry product storage"
+      ],
+      "pros": [
+        "Low cost",
+        "Low metallic contamination risk",
+        "Easy to replace or dedicate to one material"
+      ],
+      "cons": [
+        "Not suitable for high-temperature handling",
+        "Static charge and powder loss may need control"
+      ],
+      "risk_notes": [
+        "Use clean, dedicated containers to avoid cross-contamination.",
+        "Consider powder handling PPE and dust control."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "database_name": "Mock supplier database for MnO2 nanoparticle process MVP",
+  "database_scope": "Mock supplier and rough CAPEX data for preliminary equipment recommendation demo",
+  "notes": [
+    "This is mock data for MVP demonstration only.",
+    "Suppliers, prices, and lead times are illustrative placeholders.",
+    "Do not use this data for real procurement or engineering purchasing decisions."
+  ],
+  "suppliers": [
+    {
+      "supplier_id": "SUP-MIX-001",
+      "supplier_name": "BenchScale Process Glassware Co.",
+      "equipment_types_supported": [
+        "precursor_mixing"
+      ],
+      "example_equipment": "Jacketed glass mixing vessel, 1-5 L",
+      "estimated_price_range_usd": [
+        1500,
+        8000
+      ],
+      "typical_lead_time_weeks": [
+        2,
+        6
+      ],
+      "location": "United States",
+      "strengths": [
+        "Good for glass and PTFE lab-scale vessels",
+        "Low metallic contamination risk",
+        "Fast availability for small vessels"
+      ],
+      "limitations": [
+        "Not suitable for pressure-rated hydrothermal reactors",
+        "Limited pilot scale capability"
+      ],
+      "rfq_notes": [
+        "Ask for working volume, jacket temperature range, stirrer material, and product-contact material certification."
+      ]
+    },
+    {
+      "supplier_id": "SUP-MIX-002",
+      "supplier_name": "PilotMix Systems",
+      "equipment_types_supported": [
+        "precursor_mixing"
+      ],
+      "example_equipment": "316L stainless steel jacketed stirred tank, 5-50 L",
+      "estimated_price_range_usd": [
+        8000,
+        35000
+      ],
+      "typical_lead_time_weeks": [
+        6,
+        14
+      ],
+      "location": "United States",
+      "strengths": [
+        "Pilot-scale stirred tank fabrication",
+        "Jacketed temperature control",
+        "Custom agitator and vessel geometry options"
+      ],
+      "limitations": [
+        "Product-contact metal contamination must be assessed",
+        "May require passivation and cleaning validation"
+      ],
+      "rfq_notes": [
+        "Ask about surface finish, passivation, cleanability, and compatibility with acidic manganese-containing aqueous slurry."
+      ]
+    },
+    {
+      "supplier_id": "SUP-RXN-001",
+      "supplier_name": "HydroTherm Lab Reactors",
+      "equipment_types_supported": [
+        "hydrothermal_reactor"
+      ],
+      "example_equipment": "Teflon-lined stainless steel batch autoclave, 0.5-5 L",
+      "estimated_price_range_usd": [
+        5000,
+        25000
+      ],
+      "typical_lead_time_weeks": [
+        4,
+        10
+      ],
+      "location": "United States",
+      "strengths": [
+        "Teflon-lined hydrothermal autoclaves",
+        "Good contamination control",
+        "Suitable for bench-pilot hydrothermal synthesis"
+      ],
+      "limitations": [
+        "Limited mixing capability",
+        "Batch-only operation",
+        "Scale-up may require multiple vessels"
+      ],
+      "rfq_notes": [
+        "Ask for certified pressure rating at 180 C, maximum fill fraction, liner material, pressure relief options, and temperature control method."
+      ]
+    },
+    {
+      "supplier_id": "SUP-RXN-002",
+      "supplier_name": "Pilot Pressure Reactor Solutions",
+      "equipment_types_supported": [
+        "hydrothermal_reactor"
+      ],
+      "example_equipment": "Stirred pressure reactor with PTFE-lined wetted parts, 2-20 L",
+      "estimated_price_range_usd": [
+        30000,
+        120000
+      ],
+      "typical_lead_time_weeks": [
+        10,
+        24
+      ],
+      "location": "United States",
+      "strengths": [
+        "Pressure-rated stirred reactor systems",
+        "Better temperature and mixing control",
+        "Instrumentation options for pressure and temperature monitoring"
+      ],
+      "limitations": [
+        "High cost",
+        "More complex cleaning and maintenance",
+        "Agitator and seals require material compatibility review"
+      ],
+      "rfq_notes": [
+        "Ask for wetted material options, seal design, agitation range, pressure relief system, data logging, and batch reproducibility features."
+      ]
+    },
+    {
+      "supplier_id": "SUP-SEP-001",
+      "supplier_name": "CleanSolid Separation Tools",
+      "equipment_types_supported": [
+        "solid_liquid_separation",
+        "washing"
+      ],
+      "example_equipment": "Lab or pilot vacuum filtration setup with ceramic or PTFE-compatible media",
+      "estimated_price_range_usd": [
+        1000,
+        12000
+      ],
+      "typical_lead_time_weeks": [
+        2,
+        8
+      ],
+      "location": "United States",
+      "strengths": [
+        "Simple vacuum filtration equipment",
+        "Good for washing and low-contamination handling",
+        "Low cost for MVP bench-pilot scale"
+      ],
+      "limitations": [
+        "Fine nanoparticles may blind filter media",
+        "Filtration rate may be slow",
+        "Manual operation"
+      ],
+      "rfq_notes": [
+        "Ask for filter media pore size, chemical compatibility, hold-up volume, cake washing options, and expected filtration area."
+      ]
+    },
+    {
+      "supplier_id": "SUP-SEP-002",
+      "supplier_name": "PilotCentrifuge Equipment Group",
+      "equipment_types_supported": [
+        "solid_liquid_separation"
+      ],
+      "example_equipment": "Pilot basket centrifuge for fine slurry separation, 1-20 L",
+      "estimated_price_range_usd": [
+        15000,
+        80000
+      ],
+      "typical_lead_time_weeks": [
+        8,
+        20
+      ],
+      "location": "United States",
+      "strengths": [
+        "Suitable for fine particle slurry dewatering",
+        "Better scale fit than bench-top centrifuges",
+        "Can support repeated pilot batches"
+      ],
+      "limitations": [
+        "Potential metallic product-contact surfaces",
+        "Cleaning validation may be harder",
+        "Higher cost than vacuum filtration"
+      ],
+      "rfq_notes": [
+        "Ask for bowl material, liner options, minimum particle retention, cleaning procedure, and compatibility with MnO2 nanoparticle slurry."
+      ]
+    },
+    {
+      "supplier_id": "SUP-DRY-001",
+      "supplier_name": "VacuumDry Bench Systems",
+      "equipment_types_supported": [
+        "drying"
+      ],
+      "example_equipment": "Vacuum oven for battery material powder drying, 30-120 C",
+      "estimated_price_range_usd": [
+        3000,
+        20000
+      ],
+      "typical_lead_time_weeks": [
+        2,
+        8
+      ],
+      "location": "United States",
+      "strengths": [
+        "Matches reference lab drying method",
+        "Good for low-temperature powder drying",
+        "Simple and suitable for bench-pilot MVP"
+      ],
+      "limitations": [
+        "Batch operation",
+        "Tray loading affects drying uniformity",
+        "Limited throughput"
+      ],
+      "rfq_notes": [
+        "Ask for chamber material, shelf temperature uniformity, vacuum range, tray material, and contamination control features."
+      ]
+    },
+    {
+      "supplier_id": "SUP-DRY-002",
+      "supplier_name": "PilotSolids Drying Systems",
+      "equipment_types_supported": [
+        "drying"
+      ],
+      "example_equipment": "Small tray dryer or convection oven for pilot powder drying",
+      "estimated_price_range_usd": [
+        5000,
+        30000
+      ],
+      "typical_lead_time_weeks": [
+        4,
+        12
+      ],
+      "location": "United States",
+      "strengths": [
+        "Larger drying capacity",
+        "Lower cost than integrated filter dryers",
+        "Simple operation"
+      ],
+      "limitations": [
+        "More exposure to air",
+        "Potential airborne contamination",
+        "May be less suitable for high-purity battery powders"
+      ],
+      "rfq_notes": [
+        "Ask for temperature uniformity, HEPA filtration options, tray material, and cleaning protocol."
+      ]
+    },
+    {
+      "supplier_id": "SUP-COL-001",
+      "supplier_name": "CleanPowder Handling Supplies",
+      "equipment_types_supported": [
+        "powder_collection"
+      ],
+      "example_equipment": "Clean HDPE, polypropylene, or glass powder collection containers",
+      "estimated_price_range_usd": [
+        50,
+        1000
+      ],
+      "typical_lead_time_weeks": [
+        1,
+        4
+      ],
+      "location": "United States",
+      "strengths": [
+        "Low cost",
+        "Easy to dedicate containers to one material",
+        "Low metallic contamination risk"
+      ],
+      "limitations": [
+        "Not suitable for hot powder",
+        "Static charge and dust control may require additional handling procedures"
+      ],
+      "rfq_notes": [
+        "Ask for cleanroom packaging, material certification, container volume, and antistatic options."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1432 @@
+{
+  "project_name": "Pilot-scale MnO2 nanoparticle production for battery cathode components",
+  "process_goal": "Scale up a lab-scale hydrothermal synthesis of MnO2 nanostructures into a small pilot-scale batch process and recommend preliminary equipment.",
+  "process_basis": {
+    "product_summary": {
+      "name": "MnO2 nanoparticle powder",
+      "intended_application": "aqueous zinc-ion battery cathode component",
+      "critical_quality_attributes": [
+        "controlled nanoscale particle size or grain size",
+        "consistent MnO2 phase and crystallinity",
+        "low residual soluble ionic contamination",
+        "low unwanted metallic contamination from equipment",
+        "reproducible batch quality"
+      ]
+    },
+    "lab_scale_basis": {
+      "batch_liquid_volume_ml": 40,
+      "synthesis_route": "hydrothermal redox synthesis",
+      "pre_reaction_temperature_c_range": [
+        50,
+        60
+      ],
+      "hydrothermal_temperature_c": 180,
+      "hydrothermal_duration_hr": 24,
+      "hydrothermal_pressure_condition": "sealed autoclave with autogenous pressure"
+    },
+    "target_scale_basis": {
+      "mode": "bench-pilot",
+      "target_batch_liquid_volume_l": 2,
+      "batches_per_day": 1,
+      "operation_mode": "batch"
+    },
+    "scale_up_factor": 50,
+    "operating_condition_summary": {
+      "pre_reaction_temperature_c_range": [
+        50,
+        60
+      ],
+      "reaction_temperature_c": 180,
+      "reaction_pressure": "sealed autoclave with autogenous pressure",
+      "drying_temperature_c": 80
+    },
+    "quality_and_contamination_priorities": [
+      "temperature control precision",
+      "pressure safety rating",
+      "contamination control",
+      "chemical compatibility",
+      "fine-particle solid-liquid separation",
+      "washability",
+      "cleanability",
+      "pilot-scale practicality",
+      "reasonable cost"
+    ],
+    "preferred_materials": [
+      "PTFE-lined contact surfaces",
+      "316L stainless steel external pressure-rated body",
+      "glass-lined steel if compatible",
+      "ceramic or polymeric filter media with low contamination risk"
+    ],
+    "avoid_materials": [
+      "unlined carbon steel in product-contact areas",
+      "materials that may leach unwanted transition metals",
+      "porous or difficult-to-clean product-contact surfaces"
+    ],
+    "known_risks": [
+      "Hydrothermal operation requires pressure-rated sealed equipment.",
+      "Temperature ramp, hold temperature, and cooling profile may affect MnO2 morphology and crystallinity.",
+      "Fine MnO2 particles may be difficult to separate and may clog filters.",
+      "Washing efficiency affects residual K+, sulfate, acid, and soluble ion contamination.",
+      "Equipment contact materials may introduce unwanted metallic contamination.",
+      "Drying temperature and vacuum conditions may affect hydration state or powder properties.",
+      "Batch-to-batch reproducibility is important for battery material quality."
+    ],
+    "missing_or_uncertain_data": [
+      "Hydrothermal operating pressure is autogenous and given as a condition, not a confirmed numeric value. Design pressure at the hold temperature must be verified.",
+      "Particle size, yield, and morphology after scale-up are not predicted by this tool and require experimental confirmation."
+    ]
+  },
+  "unit_operations": [
+    {
+      "unit_id": "U-01",
+      "unit_name": "Precursor solution preparation",
+      "unit_type": "precursor_mixing",
+      "process_step": "precursor solution preparation",
+      "phase": "liquid",
+      "temperature_c": 25,
+      "pressure_bar": 1,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Washing efficiency affects residual K+, sulfate, acid, and soluble ion contamination.",
+        "Equipment contact materials may introduce unwanted metallic contamination."
+      ]
+    },
+    {
+      "unit_id": "U-02",
+      "unit_name": "Heated mixing",
+      "unit_type": "precursor_mixing",
+      "process_step": "heated mixing",
+      "phase": "liquid",
+      "temperature_c": 60,
+      "pressure_bar": 1,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Washing efficiency affects residual K+, sulfate, acid, and soluble ion contamination.",
+        "Equipment contact materials may introduce unwanted metallic contamination."
+      ]
+    },
+    {
+      "unit_id": "U-03",
+      "unit_name": "Hydrothermal batch reaction",
+      "unit_type": "hydrothermal_reactor",
+      "process_step": "hydrothermal batch reaction",
+      "phase": "liquid-solid slurry",
+      "temperature_c": 180,
+      "pressure_bar": 10,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Hydrothermal operation requires pressure-rated sealed equipment.",
+        "Temperature ramp, hold temperature, and cooling profile may affect MnO2 morphology and crystallinity.",
+        "Drying temperature and vacuum conditions may affect hydration state or powder properties."
+      ]
+    },
+    {
+      "unit_id": "U-04",
+      "unit_name": "Controlled cooling and safe depressurization",
+      "unit_type": "hydrothermal_reactor",
+      "process_step": "hydrothermal batch reaction",
+      "phase": "liquid-solid slurry",
+      "temperature_c": 180,
+      "pressure_bar": 10,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Hydrothermal operation requires pressure-rated sealed equipment.",
+        "Temperature ramp, hold temperature, and cooling profile may affect MnO2 morphology and crystallinity.",
+        "Drying temperature and vacuum conditions may affect hydration state or powder properties."
+      ]
+    },
+    {
+      "unit_id": "U-05",
+      "unit_name": "Solid-liquid separation",
+      "unit_type": "solid_liquid_separation",
+      "process_step": "solid-liquid separation",
+      "phase": "fine particle suspension",
+      "temperature_c": 25,
+      "pressure_bar": 1,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Fine MnO2 particles may be difficult to separate and may clog filters."
+      ]
+    },
+    {
+      "unit_id": "U-06",
+      "unit_name": "Washing to neutral pH",
+      "unit_type": "washing",
+      "process_step": "washing to neutral pH",
+      "phase": "liquid-solid slurry",
+      "temperature_c": 25,
+      "pressure_bar": 1,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Washing efficiency affects residual K+, sulfate, acid, and soluble ion contamination.",
+        "Equipment contact materials may introduce unwanted metallic contamination."
+      ]
+    },
+    {
+      "unit_id": "U-07",
+      "unit_name": "Vacuum drying",
+      "unit_type": "drying",
+      "process_step": "vacuum drying",
+      "phase": "wet cake",
+      "temperature_c": 80,
+      "pressure_bar": 0.1,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Drying temperature and vacuum conditions may affect hydration state or powder properties."
+      ]
+    },
+    {
+      "unit_id": "U-08",
+      "unit_name": "Powder collection",
+      "unit_type": "powder_collection",
+      "process_step": "powder collection",
+      "phase": "dry powder",
+      "temperature_c": 25,
+      "pressure_bar": 1,
+      "required_volume_l": 2,
+      "related_concerns": [
+        "Washing efficiency affects residual K+, sulfate, acid, and soluble ion contamination.",
+        "Equipment contact materials may introduce unwanted metallic contamination.",
+        "Batch-to-batch reproducibility is important for battery material quality."
+      ]
+    }
+  ],
+  "equipment_review": [
+    {
+      "unit_id": "U-01",
+      "unit_name": "Precursor solution preparation",
+      "unit_type": "precursor_mixing",
+      "operating_temperature_c": 25,
+      "operating_pressure_bar": 1,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "MIX-001",
+          "equipment_name": "Jacketed glass mixing vessel",
+          "equipment_type": "precursor_mixing",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 20-90 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[OK] Required volume 2 L (equipment range 0.5-5 L)."
+          ]
+        },
+        {
+          "equipment_id": "MIX-002",
+          "equipment_name": "316L stainless steel jacketed stirred tank",
+          "equipment_type": "precursor_mixing",
+          "contamination_control_level": "medium",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 20-120 C).",
+            "[OK] Pressure 1 bar (equipment range 1-2 bar).",
+            "[OK] Required volume 2 L (equipment range 2-50 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "MIX-001",
+        "equipment_name": "Jacketed glass mixing vessel",
+        "equipment_type": "precursor_mixing",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 25 C (equipment range 20-90 C).",
+          "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+          "[OK] Required volume 2 L (equipment range 0.5-5 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Do not use for sealed hydrothermal operation.",
+        "Only suitable before the pressure-rated reaction step."
+      ]
+    },
+    {
+      "unit_id": "U-02",
+      "unit_name": "Heated mixing",
+      "unit_type": "precursor_mixing",
+      "operating_temperature_c": 60,
+      "operating_pressure_bar": 1,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "MIX-001",
+          "equipment_name": "Jacketed glass mixing vessel",
+          "equipment_type": "precursor_mixing",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 60 C (equipment range 20-90 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[OK] Required volume 2 L (equipment range 0.5-5 L)."
+          ]
+        },
+        {
+          "equipment_id": "MIX-002",
+          "equipment_name": "316L stainless steel jacketed stirred tank",
+          "equipment_type": "precursor_mixing",
+          "contamination_control_level": "medium",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 60 C (equipment range 20-120 C).",
+            "[OK] Pressure 1 bar (equipment range 1-2 bar).",
+            "[OK] Required volume 2 L (equipment range 2-50 L)."
+          ]
+        },
+        {
+          "equipment_id": "RXN-003",
+          "equipment_name": "Open atmospheric stirred tank reactor",
+          "equipment_type": "hydrothermal_reactor",
+          "contamination_control_level": "medium",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 60 C (equipment range 20-100 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[OK] Required volume 2 L (equipment range 1-100 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "MIX-001",
+        "equipment_name": "Jacketed glass mixing vessel",
+        "equipment_type": "precursor_mixing",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 60 C (equipment range 20-90 C).",
+          "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+          "[OK] Required volume 2 L (equipment range 0.5-5 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Do not use for sealed hydrothermal operation.",
+        "Only suitable before the pressure-rated reaction step."
+      ]
+    },
+    {
+      "unit_id": "U-03",
+      "unit_name": "Hydrothermal batch reaction",
+      "unit_type": "hydrothermal_reactor",
+      "operating_temperature_c": 180,
+      "operating_pressure_bar": 10,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "RXN-001",
+          "equipment_name": "Teflon-lined stainless steel batch autoclave",
+          "equipment_type": "hydrothermal_reactor",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 180 C (equipment range 80-220 C).",
+            "[OK] Pressure 10 bar (equipment range 1-30 bar).",
+            "[OK] Required volume 2 L (equipment range 0.1-5 L)."
+          ]
+        },
+        {
+          "equipment_id": "RXN-002",
+          "equipment_name": "Stirred pressure reactor with PTFE-lined wetted parts",
+          "equipment_type": "hydrothermal_reactor",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 180 C (equipment range 80-250 C).",
+            "[OK] Pressure 10 bar (equipment range 1-50 bar).",
+            "[OK] Required volume 2 L (equipment range 1-20 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "RXN-001",
+        "equipment_name": "Teflon-lined stainless steel batch autoclave",
+        "equipment_type": "hydrothermal_reactor",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 180 C (equipment range 80-220 C).",
+          "[OK] Pressure 10 bar (equipment range 1-30 bar).",
+          "[OK] Required volume 2 L (equipment range 0.1-5 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Pressure rating must be verified at 180 C with autogenous pressure.",
+        "Do not overfill vessel.",
+        "Thermal ramp and cooling profile may affect MnO2 morphology."
+      ]
+    },
+    {
+      "unit_id": "U-04",
+      "unit_name": "Controlled cooling and safe depressurization",
+      "unit_type": "hydrothermal_reactor",
+      "operating_temperature_c": 180,
+      "operating_pressure_bar": 10,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "RXN-001",
+          "equipment_name": "Teflon-lined stainless steel batch autoclave",
+          "equipment_type": "hydrothermal_reactor",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 180 C (equipment range 80-220 C).",
+            "[OK] Pressure 10 bar (equipment range 1-30 bar).",
+            "[OK] Required volume 2 L (equipment range 0.1-5 L)."
+          ]
+        },
+        {
+          "equipment_id": "RXN-002",
+          "equipment_name": "Stirred pressure reactor with PTFE-lined wetted parts",
+          "equipment_type": "hydrothermal_reactor",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 180 C (equipment range 80-250 C).",
+            "[OK] Pressure 10 bar (equipment range 1-50 bar).",
+            "[OK] Required volume 2 L (equipment range 1-20 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "RXN-001",
+        "equipment_name": "Teflon-lined stainless steel batch autoclave",
+        "equipment_type": "hydrothermal_reactor",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 180 C (equipment range 80-220 C).",
+          "[OK] Pressure 10 bar (equipment range 1-30 bar).",
+          "[OK] Required volume 2 L (equipment range 0.1-5 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Pressure rating must be verified at 180 C with autogenous pressure.",
+        "Do not overfill vessel.",
+        "Thermal ramp and cooling profile may affect MnO2 morphology."
+      ]
+    },
+    {
+      "unit_id": "U-05",
+      "unit_name": "Solid-liquid separation",
+      "unit_type": "solid_liquid_separation",
+      "operating_temperature_c": 25,
+      "operating_pressure_bar": 1,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "SEP-002",
+          "equipment_name": "Pilot basket centrifuge",
+          "equipment_type": "solid_liquid_separation",
+          "contamination_control_level": "medium",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 5-60 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[OK] Required volume 2 L (equipment range 1-20 L)."
+          ]
+        },
+        {
+          "equipment_id": "SEP-003",
+          "equipment_name": "Lab or pilot vacuum filtration setup",
+          "equipment_type": "solid_liquid_separation",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 5-60 C).",
+            "[OK] Pressure 1 bar (equipment range 0.2-1 bar).",
+            "[OK] Required volume 2 L (equipment range 0.1-5 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [
+        {
+          "equipment_id": "SEP-001",
+          "equipment_name": "Bench-top centrifuge",
+          "equipment_type": "solid_liquid_separation",
+          "contamination_control_level": "high",
+          "accepted": false,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": false
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 5-40 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[FAIL] Required volume 2 L (equipment range 0.01-1 L)."
+          ]
+        },
+        {
+          "equipment_id": "SEP-004",
+          "equipment_name": "Agitated nutsche filter dryer",
+          "equipment_type": "solid_liquid_separation",
+          "contamination_control_level": "medium",
+          "accepted": false,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": false
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 20-120 C).",
+            "[OK] Pressure 1 bar (equipment range 0.1-6 bar).",
+            "[FAIL] Required volume 2 L (equipment range 5-100 L)."
+          ]
+        }
+      ],
+      "recommended_equipment": {
+        "equipment_id": "SEP-003",
+        "equipment_name": "Lab or pilot vacuum filtration setup",
+        "equipment_type": "solid_liquid_separation",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 25 C (equipment range 5-60 C).",
+          "[OK] Pressure 1 bar (equipment range 0.2-1 bar).",
+          "[OK] Required volume 2 L (equipment range 0.1-5 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Filter media pore size and cake permeability must be tested.",
+        "May need pre-wetting or staged filtration."
+      ]
+    },
+    {
+      "unit_id": "U-06",
+      "unit_name": "Washing to neutral pH",
+      "unit_type": "washing",
+      "operating_temperature_c": 25,
+      "operating_pressure_bar": 1,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "WASH-001",
+          "equipment_name": "Repeated DI water reslurry washing vessel",
+          "equipment_type": "washing",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 20-60 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[OK] Required volume 2 L (equipment range 0.5-10 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "WASH-001",
+        "equipment_name": "Repeated DI water reslurry washing vessel",
+        "equipment_type": "washing",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 25 C (equipment range 20-60 C).",
+          "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+          "[OK] Required volume 2 L (equipment range 0.5-10 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Conductivity and pH should be monitored to confirm washing completeness.",
+        "Avoid product loss during repeated washing."
+      ]
+    },
+    {
+      "unit_id": "U-07",
+      "unit_name": "Vacuum drying",
+      "unit_type": "drying",
+      "operating_temperature_c": 80,
+      "operating_pressure_bar": 0.1,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "DRY-001",
+          "equipment_name": "Vacuum oven",
+          "equipment_type": "drying",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 80 C (equipment range 30-120 C).",
+            "[OK] Pressure 0.1 bar (equipment range 0.001-1 bar).",
+            "[OK] Required volume 2 L (equipment range 0.1-10 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "DRY-001",
+        "equipment_name": "Vacuum oven",
+        "equipment_type": "drying",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 80 C (equipment range 30-120 C).",
+          "[OK] Pressure 0.1 bar (equipment range 0.001-1 bar).",
+          "[OK] Required volume 2 L (equipment range 0.1-10 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Drying temperature and time should be validated against MnO2 phase and hydration requirements.",
+        "Avoid cross-contamination from previous powders."
+      ]
+    },
+    {
+      "unit_id": "U-08",
+      "unit_name": "Powder collection",
+      "unit_type": "powder_collection",
+      "operating_temperature_c": 25,
+      "operating_pressure_bar": 1,
+      "required_volume_l": 2,
+      "accepted_candidates": [
+        {
+          "equipment_id": "COL-001",
+          "equipment_name": "Clean powder collection container",
+          "equipment_type": "powder_collection",
+          "contamination_control_level": "high",
+          "accepted": true,
+          "checks": {
+            "temperature": true,
+            "pressure": true,
+            "volume": true
+          },
+          "reasons": [
+            "[OK] Temperature 25 C (equipment range 20-60 C).",
+            "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+            "[OK] Required volume 2 L (equipment range 0.1-20 L)."
+          ]
+        }
+      ],
+      "rejected_candidates": [],
+      "recommended_equipment": {
+        "equipment_id": "COL-001",
+        "equipment_name": "Clean powder collection container",
+        "equipment_type": "powder_collection",
+        "contamination_control_level": "high",
+        "accepted": true,
+        "checks": {
+          "temperature": true,
+          "pressure": true,
+          "volume": true
+        },
+        "reasons": [
+          "[OK] Temperature 25 C (equipment range 20-60 C).",
+          "[OK] Pressure 1 bar (equipment range 1-1 bar).",
+          "[OK] Required volume 2 L (equipment range 0.1-20 L)."
+        ]
+      },
+      "unresolved_risks": [
+        "Use clean, dedicated containers to avoid cross-contamination.",
+        "Consider powder handling PPE and dust control."
+      ]
+    }
+  ],
+  "supplier_matching": {
+    "unit_supplier_matches": [
+      {
+        "unit_id": "U-01",
+        "unit_name": "Precursor solution preparation",
+        "recommended_equipment": {
+          "equipment_id": "MIX-001",
+          "equipment_name": "Jacketed glass mixing vessel",
+          "equipment_type": "precursor_mixing"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-MIX-001",
+            "supplier_name": "BenchScale Process Glassware Co.",
+            "example_equipment": "Jacketed glass mixing vessel, 1-5 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              1500,
+              8000
+            ],
+            "typical_lead_time_weeks": [
+              2,
+              6
+            ],
+            "strengths": [
+              "Good for glass and PTFE lab-scale vessels",
+              "Low metallic contamination risk",
+              "Fast availability for small vessels"
+            ],
+            "limitations": [
+              "Not suitable for pressure-rated hydrothermal reactors",
+              "Limited pilot scale capability"
+            ],
+            "rfq_notes": [
+              "Ask for working volume, jacket temperature range, stirrer material, and product-contact material certification."
+            ]
+          },
+          {
+            "supplier_id": "SUP-MIX-002",
+            "supplier_name": "PilotMix Systems",
+            "example_equipment": "316L stainless steel jacketed stirred tank, 5-50 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              8000,
+              35000
+            ],
+            "typical_lead_time_weeks": [
+              6,
+              14
+            ],
+            "strengths": [
+              "Pilot-scale stirred tank fabrication",
+              "Jacketed temperature control",
+              "Custom agitator and vessel geometry options"
+            ],
+            "limitations": [
+              "Product-contact metal contamination must be assessed",
+              "May require passivation and cleaning validation"
+            ],
+            "rfq_notes": [
+              "Ask about surface finish, passivation, cleanability, and compatibility with acidic manganese-containing aqueous slurry."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          1500,
+          35000
+        ]
+      },
+      {
+        "unit_id": "U-02",
+        "unit_name": "Heated mixing",
+        "recommended_equipment": {
+          "equipment_id": "MIX-001",
+          "equipment_name": "Jacketed glass mixing vessel",
+          "equipment_type": "precursor_mixing"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-MIX-001",
+            "supplier_name": "BenchScale Process Glassware Co.",
+            "example_equipment": "Jacketed glass mixing vessel, 1-5 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              1500,
+              8000
+            ],
+            "typical_lead_time_weeks": [
+              2,
+              6
+            ],
+            "strengths": [
+              "Good for glass and PTFE lab-scale vessels",
+              "Low metallic contamination risk",
+              "Fast availability for small vessels"
+            ],
+            "limitations": [
+              "Not suitable for pressure-rated hydrothermal reactors",
+              "Limited pilot scale capability"
+            ],
+            "rfq_notes": [
+              "Ask for working volume, jacket temperature range, stirrer material, and product-contact material certification."
+            ]
+          },
+          {
+            "supplier_id": "SUP-MIX-002",
+            "supplier_name": "PilotMix Systems",
+            "example_equipment": "316L stainless steel jacketed stirred tank, 5-50 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              8000,
+              35000
+            ],
+            "typical_lead_time_weeks": [
+              6,
+              14
+            ],
+            "strengths": [
+              "Pilot-scale stirred tank fabrication",
+              "Jacketed temperature control",
+              "Custom agitator and vessel geometry options"
+            ],
+            "limitations": [
+              "Product-contact metal contamination must be assessed",
+              "May require passivation and cleaning validation"
+            ],
+            "rfq_notes": [
+              "Ask about surface finish, passivation, cleanability, and compatibility with acidic manganese-containing aqueous slurry."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          1500,
+          35000
+        ]
+      },
+      {
+        "unit_id": "U-03",
+        "unit_name": "Hydrothermal batch reaction",
+        "recommended_equipment": {
+          "equipment_id": "RXN-001",
+          "equipment_name": "Teflon-lined stainless steel batch autoclave",
+          "equipment_type": "hydrothermal_reactor"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-RXN-001",
+            "supplier_name": "HydroTherm Lab Reactors",
+            "example_equipment": "Teflon-lined stainless steel batch autoclave, 0.5-5 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              5000,
+              25000
+            ],
+            "typical_lead_time_weeks": [
+              4,
+              10
+            ],
+            "strengths": [
+              "Teflon-lined hydrothermal autoclaves",
+              "Good contamination control",
+              "Suitable for bench-pilot hydrothermal synthesis"
+            ],
+            "limitations": [
+              "Limited mixing capability",
+              "Batch-only operation",
+              "Scale-up may require multiple vessels"
+            ],
+            "rfq_notes": [
+              "Ask for certified pressure rating at 180 C, maximum fill fraction, liner material, pressure relief options, and temperature control method."
+            ]
+          },
+          {
+            "supplier_id": "SUP-RXN-002",
+            "supplier_name": "Pilot Pressure Reactor Solutions",
+            "example_equipment": "Stirred pressure reactor with PTFE-lined wetted parts, 2-20 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              30000,
+              120000
+            ],
+            "typical_lead_time_weeks": [
+              10,
+              24
+            ],
+            "strengths": [
+              "Pressure-rated stirred reactor systems",
+              "Better temperature and mixing control",
+              "Instrumentation options for pressure and temperature monitoring"
+            ],
+            "limitations": [
+              "High cost",
+              "More complex cleaning and maintenance",
+              "Agitator and seals require material compatibility review"
+            ],
+            "rfq_notes": [
+              "Ask for wetted material options, seal design, agitation range, pressure relief system, data logging, and batch reproducibility features."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          5000,
+          120000
+        ]
+      },
+      {
+        "unit_id": "U-04",
+        "unit_name": "Controlled cooling and safe depressurization",
+        "recommended_equipment": {
+          "equipment_id": "RXN-001",
+          "equipment_name": "Teflon-lined stainless steel batch autoclave",
+          "equipment_type": "hydrothermal_reactor"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-RXN-001",
+            "supplier_name": "HydroTherm Lab Reactors",
+            "example_equipment": "Teflon-lined stainless steel batch autoclave, 0.5-5 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              5000,
+              25000
+            ],
+            "typical_lead_time_weeks": [
+              4,
+              10
+            ],
+            "strengths": [
+              "Teflon-lined hydrothermal autoclaves",
+              "Good contamination control",
+              "Suitable for bench-pilot hydrothermal synthesis"
+            ],
+            "limitations": [
+              "Limited mixing capability",
+              "Batch-only operation",
+              "Scale-up may require multiple vessels"
+            ],
+            "rfq_notes": [
+              "Ask for certified pressure rating at 180 C, maximum fill fraction, liner material, pressure relief options, and temperature control method."
+            ]
+          },
+          {
+            "supplier_id": "SUP-RXN-002",
+            "supplier_name": "Pilot Pressure Reactor Solutions",
+            "example_equipment": "Stirred pressure reactor with PTFE-lined wetted parts, 2-20 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              30000,
+              120000
+            ],
+            "typical_lead_time_weeks": [
+              10,
+              24
+            ],
+            "strengths": [
+              "Pressure-rated stirred reactor systems",
+              "Better temperature and mixing control",
+              "Instrumentation options for pressure and temperature monitoring"
+            ],
+            "limitations": [
+              "High cost",
+              "More complex cleaning and maintenance",
+              "Agitator and seals require material compatibility review"
+            ],
+            "rfq_notes": [
+              "Ask for wetted material options, seal design, agitation range, pressure relief system, data logging, and batch reproducibility features."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          5000,
+          120000
+        ]
+      },
+      {
+        "unit_id": "U-05",
+        "unit_name": "Solid-liquid separation",
+        "recommended_equipment": {
+          "equipment_id": "SEP-003",
+          "equipment_name": "Lab or pilot vacuum filtration setup",
+          "equipment_type": "solid_liquid_separation"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-SEP-001",
+            "supplier_name": "CleanSolid Separation Tools",
+            "example_equipment": "Lab or pilot vacuum filtration setup with ceramic or PTFE-compatible media",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              1000,
+              12000
+            ],
+            "typical_lead_time_weeks": [
+              2,
+              8
+            ],
+            "strengths": [
+              "Simple vacuum filtration equipment",
+              "Good for washing and low-contamination handling",
+              "Low cost for MVP bench-pilot scale"
+            ],
+            "limitations": [
+              "Fine nanoparticles may blind filter media",
+              "Filtration rate may be slow",
+              "Manual operation"
+            ],
+            "rfq_notes": [
+              "Ask for filter media pore size, chemical compatibility, hold-up volume, cake washing options, and expected filtration area."
+            ]
+          },
+          {
+            "supplier_id": "SUP-SEP-002",
+            "supplier_name": "PilotCentrifuge Equipment Group",
+            "example_equipment": "Pilot basket centrifuge for fine slurry separation, 1-20 L",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              15000,
+              80000
+            ],
+            "typical_lead_time_weeks": [
+              8,
+              20
+            ],
+            "strengths": [
+              "Suitable for fine particle slurry dewatering",
+              "Better scale fit than bench-top centrifuges",
+              "Can support repeated pilot batches"
+            ],
+            "limitations": [
+              "Potential metallic product-contact surfaces",
+              "Cleaning validation may be harder",
+              "Higher cost than vacuum filtration"
+            ],
+            "rfq_notes": [
+              "Ask for bowl material, liner options, minimum particle retention, cleaning procedure, and compatibility with MnO2 nanoparticle slurry."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          1000,
+          80000
+        ]
+      },
+      {
+        "unit_id": "U-06",
+        "unit_name": "Washing to neutral pH",
+        "recommended_equipment": {
+          "equipment_id": "WASH-001",
+          "equipment_name": "Repeated DI water reslurry washing vessel",
+          "equipment_type": "washing"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-SEP-001",
+            "supplier_name": "CleanSolid Separation Tools",
+            "example_equipment": "Lab or pilot vacuum filtration setup with ceramic or PTFE-compatible media",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              1000,
+              12000
+            ],
+            "typical_lead_time_weeks": [
+              2,
+              8
+            ],
+            "strengths": [
+              "Simple vacuum filtration equipment",
+              "Good for washing and low-contamination handling",
+              "Low cost for MVP bench-pilot scale"
+            ],
+            "limitations": [
+              "Fine nanoparticles may blind filter media",
+              "Filtration rate may be slow",
+              "Manual operation"
+            ],
+            "rfq_notes": [
+              "Ask for filter media pore size, chemical compatibility, hold-up volume, cake washing options, and expected filtration area."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          1000,
+          12000
+        ]
+      },
+      {
+        "unit_id": "U-07",
+        "unit_name": "Vacuum drying",
+        "recommended_equipment": {
+          "equipment_id": "DRY-001",
+          "equipment_name": "Vacuum oven",
+          "equipment_type": "drying"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-DRY-001",
+            "supplier_name": "VacuumDry Bench Systems",
+            "example_equipment": "Vacuum oven for battery material powder drying, 30-120 C",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              3000,
+              20000
+            ],
+            "typical_lead_time_weeks": [
+              2,
+              8
+            ],
+            "strengths": [
+              "Matches reference lab drying method",
+              "Good for low-temperature powder drying",
+              "Simple and suitable for bench-pilot MVP"
+            ],
+            "limitations": [
+              "Batch operation",
+              "Tray loading affects drying uniformity",
+              "Limited throughput"
+            ],
+            "rfq_notes": [
+              "Ask for chamber material, shelf temperature uniformity, vacuum range, tray material, and contamination control features."
+            ]
+          },
+          {
+            "supplier_id": "SUP-DRY-002",
+            "supplier_name": "PilotSolids Drying Systems",
+            "example_equipment": "Small tray dryer or convection oven for pilot powder drying",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              5000,
+              30000
+            ],
+            "typical_lead_time_weeks": [
+              4,
+              12
+            ],
+            "strengths": [
+              "Larger drying capacity",
+              "Lower cost than integrated filter dryers",
+              "Simple operation"
+            ],
+            "limitations": [
+              "More exposure to air",
+              "Potential airborne contamination",
+              "May be less suitable for high-purity battery powders"
+            ],
+            "rfq_notes": [
+              "Ask for temperature uniformity, HEPA filtration options, tray material, and cleaning protocol."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          3000,
+          30000
+        ]
+      },
+      {
+        "unit_id": "U-08",
+        "unit_name": "Powder collection",
+        "recommended_equipment": {
+          "equipment_id": "COL-001",
+          "equipment_name": "Clean powder collection container",
+          "equipment_type": "powder_collection"
+        },
+        "suppliers": [
+          {
+            "supplier_id": "SUP-COL-001",
+            "supplier_name": "CleanPowder Handling Supplies",
+            "example_equipment": "Clean HDPE, polypropylene, or glass powder collection containers",
+            "location": "United States",
+            "estimated_price_range_usd": [
+              50,
+              1000
+            ],
+            "typical_lead_time_weeks": [
+              1,
+              4
+            ],
+            "strengths": [
+              "Low cost",
+              "Easy to dedicate containers to one material",
+              "Low metallic contamination risk"
+            ],
+            "limitations": [
+              "Not suitable for hot powder",
+              "Static charge and dust control may require additional handling procedures"
+            ],
+            "rfq_notes": [
+              "Ask for cleanroom packaging, material certification, container volume, and antistatic options."
+            ]
+          }
+        ],
+        "unit_capex_range_usd": [
+          50,
+          1000
+        ]
+      }
+    ],
+    "capex_summary": {
+      "rough_total_capex_usd": [
+        11550,
+        278000
+      ],
+      "note": "Illustrative mock CAPEX only. Each distinct recommended equipment item is counted once (equipment shared across steps is not double-counted). Totals use the lowest and highest mock supplier prices. Not a quote."
+    }
+  },
+  "rfq_draft": {
+    "intro": "Request for preliminary quotation for pilot-scale equipment supporting the production of MnO2 nanoparticle powder for aqueous zinc-ion battery cathode component. Target batch size is 2 L in bench-pilot batch operation. This is an early-stage inquiry for budgetary purposes only.",
+    "items": [
+      {
+        "for_unit": "Precursor solution preparation",
+        "equipment_type": "precursor_mixing",
+        "equipment_example": "Jacketed glass mixing vessel",
+        "operating_conditions": [
+          "Operating temperature is 25 C, so the equipment must be rated to cover this point with margin (recommended example is rated 20 to 90 C).",
+          "Operating pressure is about 1 bar, so the equipment must be rated to cover this with adequate relief (recommended example is rated 1 to 1 bar).",
+          "Batch volume is 2 L, so the working volume must accommodate this (recommended example handles 0.5 to 5 L)."
+        ],
+        "preferred_contact_materials": [
+          "PTFE-lined contact surfaces",
+          "316L stainless steel external pressure-rated body",
+          "glass-lined steel if compatible",
+          "ceramic or polymeric filter media with low contamination risk"
+        ],
+        "materials_to_avoid": [
+          "unlined carbon steel in product-contact areas",
+          "materials that may leach unwanted transition metals",
+          "porous or difficult-to-clean product-contact surfaces"
+        ],
+        "questions_for_supplier": [
+          "What product-contact materials are available, and can they avoid: unlined carbon steel in product-contact areas, materials that may leach unwanted transition metals, porous or difficult-to-clean product-contact surfaces?",
+          "Can the equipment meet the operating conditions listed above with an adequate safety margin?",
+          "What contamination control, cleaning, and validation options are supported?",
+          "What is the budgetary price and typical lead time?",
+          "(BenchScale Process Glassware Co.) Ask for working volume, jacket temperature range, stirrer material, and product-contact material certification.",
+          "(PilotMix Systems) Ask about surface finish, passivation, cleanability, and compatibility with acidic manganese-containing aqueous slurry."
+        ],
+        "candidate_suppliers": [
+          "BenchScale Process Glassware Co.",
+          "PilotMix Systems"
+        ]
+      },
+      {
+        "for_unit": "Hydrothermal batch reaction",
+        "equipment_type": "hydrothermal_reactor",
+        "equipment_example": "Teflon-lined stainless steel batch autoclave",
+        "operating_conditions": [
+          "Operating temperature is 180 C, so the equipment must be rated to cover this point with margin (recommended example is rated 80 to 220 C).",
+          "Operating pressure is about 10 bar, so the equipment must be rated to cover this with adequate relief (recommended example is rated 1 to 30 bar).",
+          "Batch volume is 2 L, so the working volume must accommodate this (recommended example handles 0.1 to 5 L)."
+        ],
+        "preferred_contact_materials": [
+          "PTFE-lined contact surfaces",
+          "316L stainless steel external pressure-rated body",
+          "glass-lined steel if compatible",
+          "ceramic or polymeric filter media with low contamination risk"
+        ],
+        "materials_to_avoid": [
+          "unlined carbon steel in product-contact areas",
+          "materials that may leach unwanted transition metals",
+          "porous or difficult-to-clean product-contact surfaces"
+        ],
+        "questions_for_supplier": [
+          "What product-contact materials are available, and can they avoid: unlined carbon steel in product-contact areas, materials that may leach unwanted transition metals, porous or difficult-to-clean product-contact surfaces?",
+          "Can the equipment meet the operating conditions listed above with an adequate safety margin?",
+          "What contamination control, cleaning, and validation options are supported?",
+          "What is the budgetary price and typical lead time?",
+          "(HydroTherm Lab Reactors) Ask for certified pressure rating at 180 C, maximum fill fraction, liner material, pressure relief options, and temperature control method.",
+          "(Pilot Pressure Reactor Solutions) Ask for wetted material options, seal design, agitation range, pressure relief system, data logging, and batch reproducibility features."
+        ],
+        "candidate_suppliers": [
+          "HydroTherm Lab Reactors",
+          "Pilot Pressure Reactor Solutions"
+        ]
+      },
+      {
+        "for_unit": "Solid-liquid separation",
+        "equipment_type": "solid_liquid_separation",
+        "equipment_example": "Lab or pilot vacuum filtration setup",
+        "operating_conditions": [
+          "Operating temperature is 25 C, so the equipment must be rated to cover this point with margin (recommended example is rated 5 to 60 C).",
+          "Operating pressure is about 1 bar, so the equipment must be rated to cover this with adequate relief (recommended example is rated 0.2 to 1 bar).",
+          "Batch volume is 2 L, so the working volume must accommodate this (recommended example handles 0.1 to 5 L)."
+        ],
+        "preferred_contact_materials": [
+          "PTFE-lined contact surfaces",
+          "316L stainless steel external pressure-rated body",
+          "glass-lined steel if compatible",
+          "ceramic or polymeric filter media with low contamination risk"
+        ],
+        "materials_to_avoid": [
+          "unlined carbon steel in product-contact areas",
+          "materials that may leach unwanted transition metals",
+          "porous or difficult-to-clean product-contact surfaces"
+        ],
+        "questions_for_supplier": [
+          "What product-contact materials are available, and can they avoid: unlined carbon steel in product-contact areas, materials that may leach unwanted transition metals, porous or difficult-to-clean product-contact surfaces?",
+          "Can the equipment meet the operating conditions listed above with an adequate safety margin?",
+          "What contamination control, cleaning, and validation options are supported?",
+          "What is the budgetary price and typical lead time?",
+          "(CleanSolid Separation Tools) Ask for filter media pore size, chemical compatibility, hold-up volume, cake washing options, and expected filtration area.",
+          "(PilotCentrifuge Equipment Group) Ask for bowl material, liner options, minimum particle retention, cleaning procedure, and compatibility with MnO2 nanoparticle slurry."
+        ],
+        "candidate_suppliers": [
+          "CleanSolid Separation Tools",
+          "PilotCentrifuge Equipment Group"
+        ]
+      },
+      {
+        "for_unit": "Washing to neutral pH",
+        "equipment_type": "washing",
+        "equipment_example": "Repeated DI water reslurry washing vessel",
+        "operating_conditions": [
+          "Operating temperature is 25 C, so the equipment must be rated to cover this point with margin (recommended example is rated 20 to 60 C).",
+          "Operating pressure is about 1 bar, so the equipment must be rated to cover this with adequate relief (recommended example is rated 1 to 1 bar).",
+          "Batch volume is 2 L, so the working volume must accommodate this (recommended example handles 0.5 to 10 L)."
+        ],
+        "preferred_contact_materials": [
+          "PTFE-lined contact surfaces",
+          "316L stainless steel external pressure-rated body",
+          "glass-lined steel if compatible",
+          "ceramic or polymeric filter media with low contamination risk"
+        ],
+        "materials_to_avoid": [
+          "unlined carbon steel in product-contact areas",
+          "materials that may leach unwanted transition metals",
+          "porous or difficult-to-clean product-contact surfaces"
+        ],
+        "questions_for_supplier": [
+          "What product-contact materials are available, and can they avoid: unlined carbon steel in product-contact areas, materials that may leach unwanted transition metals, porous or difficult-to-clean product-contact surfaces?",
+          "Can the equipment meet the operating conditions listed above with an adequate safety margin?",
+          "What contamination control, cleaning, and validation options are supported?",
+          "What is the budgetary price and typical lead time?",
+          "(CleanSolid Separation Tools) Ask for filter media pore size, chemical compatibility, hold-up volume, cake washing options, and expected filtration area."
+        ],
+        "candidate_suppliers": [
+          "CleanSolid Separation Tools"
+        ]
+      },
+      {
+        "for_unit": "Vacuum drying",
+        "equipment_type": "drying",
+        "equipment_example": "Vacuum oven",
+        "operating_conditions": [
+          "Operating temperature is 80 C, so the equipment must be rated to cover this point with margin (recommended example is rated 30 to 120 C).",
+          "Operating pressure is about 0.1 bar, so the equipment must be rated to cover this with adequate relief (recommended example is rated 0.001 to 1 bar).",
+          "Batch volume is 2 L, so the working volume must accommodate this (recommended example handles 0.1 to 10 L)."
+        ],
+        "preferred_contact_materials": [
+          "PTFE-lined contact surfaces",
+          "316L stainless steel external pressure-rated body",
+          "glass-lined steel if compatible",
+          "ceramic or polymeric filter media with low contamination risk"
+        ],
+        "materials_to_avoid": [
+          "unlined carbon steel in product-contact areas",
+          "materials that may leach unwanted transition metals",
+          "porous or difficult-to-clean product-contact surfaces"
+        ],
+        "questions_for_supplier": [
+          "What product-contact materials are available, and can they avoid: unlined carbon steel in product-contact areas, materials that may leach unwanted transition metals, porous or difficult-to-clean product-contact surfaces?",
+          "Can the equipment meet the operating conditions listed above with an adequate safety margin?",
+          "What contamination control, cleaning, and validation options are supported?",
+          "What is the budgetary price and typical lead time?",
+          "(VacuumDry Bench Systems) Ask for chamber material, shelf temperature uniformity, vacuum range, tray material, and contamination control features.",
+          "(PilotSolids Drying Systems) Ask for temperature uniformity, HEPA filtration options, tray material, and cleaning protocol."
+        ],
+        "candidate_suppliers": [
+          "VacuumDry Bench Systems",
+          "PilotSolids Drying Systems"
+        ]
+      },
+      {
+        "for_unit": "Powder collection",
+        "equipment_type": "powder_collection",
+        "equipment_example": "Clean powder collection container",
+        "operating_conditions": [
+          "Operating temperature is 25 C, so the equipment must be rated to cover this point with margin (recommended example is rated 20 to 60 C).",
+          "Operating pressure is about 1 bar, so the equipment must be rated to cover this with adequate relief (recommended example is rated 1 to 1 bar).",
+          "Batch volume is 2 L, so the working volume must accommodate this (recommended example handles 0.1 to 20 L)."
+        ],
+        "preferred_contact_materials": [
+          "PTFE-lined contact surfaces",
+          "316L stainless steel external pressure-rated body",
+          "glass-lined steel if compatible",
+          "ceramic or polymeric filter media with low contamination risk"
+        ],
+        "materials_to_avoid": [
+          "unlined carbon steel in product-contact areas",
+          "materials that may leach unwanted transition metals",
+          "porous or difficult-to-clean product-contact surfaces"
+        ],
+        "questions_for_supplier": [
+          "What product-contact materials are available, and can they avoid: unlined carbon steel in product-contact areas, materials that may leach unwanted transition metals, porous or difficult-to-clean product-contact surfaces?",
+          "Can the equipment meet the operating conditions listed above with an adequate safety margin?",
+          "What contamination control, cleaning, and validation options are supported?",
+          "What is the budgetary price and typical lead time?",
+          "(CleanPowder Handling Supplies) Ask for cleanroom packaging, material certification, container volume, and antistatic options."
+        ],
+        "candidate_suppliers": [
+          "CleanPowder Handling Supplies"
+        ]
+      }
+    ],
+    "closing": "Please provide budgetary pricing, lead time, product-contact material options, and relevant certifications. All values will be treated as preliminary and subject to engineering review."
+  },
+  "disclaimer": "Preliminary decision-support output generated with mock data. Not a certified engineering design. Requires review by a qualified process engineer before any procurement."
+}

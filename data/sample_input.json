@@ -1,0 +1,138 @@
+{
+  "project_name": "Pilot-scale MnO2 nanoparticle production for battery cathode components",
+  "process_goal": "Scale up a lab-scale hydrothermal synthesis of MnO2 nanostructures into a small pilot-scale batch process and recommend preliminary equipment.",
+  "reference_basis": {
+    "source_type": "literature-inspired lab procedure",
+    "notes": "Based on reported hydrothermal synthesis of MnO2 using KMnO4 and MnSO4.H2O as starting materials for aqueous zinc-ion battery cathode research."
+  },
+  "target_product": {
+    "name": "MnO2 nanoparticle powder",
+    "intended_application": "aqueous zinc-ion battery cathode component",
+    "critical_quality_attributes": [
+      "controlled nanoscale particle size or grain size",
+      "consistent MnO2 phase and crystallinity",
+      "low residual soluble ionic contamination",
+      "low unwanted metallic contamination from equipment",
+      "reproducible batch quality"
+    ]
+  },
+  "lab_scale_process": {
+    "synthesis_route": "hydrothermal redox synthesis",
+    "batch_liquid_volume_ml": 40,
+    "reactants": [
+      {
+        "name": "potassium permanganate",
+        "formula": "KMnO4",
+        "mass_g": 3.2,
+        "role": "Mn(VII) oxidant and manganese source"
+      },
+      {
+        "name": "manganese sulfate monohydrate",
+        "formula": "MnSO4.H2O",
+        "mass_g": 5.07,
+        "role": "Mn(II) reductant and manganese source"
+      },
+      {
+        "name": "deionized water",
+        "volume_ml": 40,
+        "role": "solvent"
+      }
+    ],
+    "pre_hydrothermal_step": {
+      "operation": "heated stirring",
+      "temperature_c_range": [
+        50,
+        60
+      ],
+      "duration_hr": 2,
+      "observations": [
+        "KMnO4 purple/pink color disappears",
+        "dark MnO2 precipitate forms"
+      ]
+    },
+    "hydrothermal_step": {
+      "reactor_type": "Teflon-lined stainless steel autoclave",
+      "temperature_c": 180,
+      "duration_hr": 24,
+      "pressure_condition": "sealed autoclave with autogenous pressure"
+    },
+    "post_reaction_steps": [
+      {
+        "operation": "natural cooling to room temperature"
+      },
+      {
+        "operation": "solid-liquid separation",
+        "lab_method": "centrifugation",
+        "centrifuge_speed_rpm": 4000,
+        "duration_min": 10,
+        "temperature_c": 20
+      },
+      {
+        "operation": "washing",
+        "solvent": "deionized water",
+        "endpoint": "neutral pH"
+      },
+      {
+        "operation": "drying",
+        "method": "vacuum oven",
+        "temperature_c": 80,
+        "duration": "overnight"
+      }
+    ]
+  },
+  "target_scale": {
+    "mode": "bench-pilot",
+    "target_batch_liquid_volume_l": 2,
+    "scale_up_factor_from_lab_volume": 50,
+    "batches_per_day": 1,
+    "operation_mode": "batch"
+  },
+  "known_process_concerns": [
+    "Hydrothermal operation requires pressure-rated sealed equipment.",
+    "Temperature ramp, hold temperature, and cooling profile may affect MnO2 morphology and crystallinity.",
+    "Fine MnO2 particles may be difficult to separate and may clog filters.",
+    "Washing efficiency affects residual K+, sulfate, acid, and soluble ion contamination.",
+    "Equipment contact materials may introduce unwanted metallic contamination.",
+    "Drying temperature and vacuum conditions may affect hydration state or powder properties.",
+    "Batch-to-batch reproducibility is important for battery material quality."
+  ],
+  "equipment_selection_priorities": [
+    "temperature control precision",
+    "pressure safety rating",
+    "contamination control",
+    "chemical compatibility",
+    "fine-particle solid-liquid separation",
+    "washability",
+    "cleanability",
+    "pilot-scale practicality",
+    "reasonable cost"
+  ],
+  "preferred_materials": [
+    "PTFE-lined contact surfaces",
+    "316L stainless steel external pressure-rated body",
+    "glass-lined steel if compatible",
+    "ceramic or polymeric filter media with low contamination risk"
+  ],
+  "avoid_materials": [
+    "unlined carbon steel in product-contact areas",
+    "materials that may leach unwanted transition metals",
+    "porous or difficult-to-clean product-contact surfaces"
+  ],
+  "expected_unit_operations": [
+    "precursor solution preparation",
+    "heated mixing",
+    "hydrothermal batch reaction",
+    "controlled cooling and safe depressurization",
+    "solid-liquid separation",
+    "washing to neutral pH",
+    "vacuum drying",
+    "powder collection"
+  ],
+  "mvp_constraints": {
+    "real_aspen_simulation": false,
+    "real_supplier_search": false,
+    "use_mock_equipment_database": true,
+    "use_mock_supplier_database": true,
+    "output_should_be_preliminary": true
+  }
+}
