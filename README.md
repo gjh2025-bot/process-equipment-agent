@@ -29,8 +29,10 @@ equipment candidate was accepted or rejected.
 
 ## Requirements
 
-- Python 3.9+ (developed on 3.11). **No third-party packages** — standard
-  library only, so `requirements.txt` is intentionally empty.
+- Python 3.9+ (developed on 3.11).
+- The **local workflow** (`main.py` / `src/`) uses the **standard library only**.
+- The **ASI:One agent** (`agent.py`) additionally needs `uagents` (and `openai`
+  for the optional LLM layer): `pip install -r requirements.txt openai`.
 
 ## How to run
 
@@ -52,12 +54,39 @@ This writes two files into `outputs/`:
 - `outputs/sample_output.json` — full structured result
 - `outputs/sample_report.md` — readable report for demo
 
+## ASI:One agent
+
+The same workflow is wrapped as a conversational [Fetch.ai uAgent](https://fetch.ai/)
+(`agent.py`) using the chat protocol, so it can be reached from
+[ASI:One](https://asi1.ai). The deterministic workflow is the source of truth;
+an optional ASI:One LLM layer only makes the replies conversational and never
+invents equipment, prices, or suppliers.
+
+```bash
+# Standard-library workflow only needs Python; the agent needs uagents:
+pip install -r requirements.txt
+
+# Optional: enable the conversational LLM layer (else it uses rule-based replies)
+#   PowerShell:  $env:ASI_ONE_API_KEY = "your-key"
+#   bash:        export ASI_ONE_API_KEY=your-key
+
+python agent.py     # on Windows: py agent.py
+```
+
+On startup the agent prints an **Agent Inspector** link; open it (while the
+agent is running) to connect an Agentverse mailbox, after which the agent is
+reachable from ASI:One. Sample prompts: `analyze`, `rfq`, or
+`what equipment do you recommend for my MnO₂ process?`. See `AGENT_README.md`
+for the Agentverse profile text.
+
 ## Project structure
 
 ```
 hackathon-project/
   main.py                     # workflow entry point / orchestration
-  requirements.txt            # empty (standard library only)
+  agent.py                    # ASI:One-compatible uAgent wrapping the workflow
+  AGENT_README.md             # Agentverse profile text for the agent
+  requirements.txt            # uagents (workflow itself is standard-library only)
   data/
     sample_input.json         # the demo process brief
     equipment_database.json   # mock equipment knowledge base
@@ -96,11 +125,16 @@ For the 2 L bench-pilot batch, the workflow recommends, for example:
 - Preliminary and illustrative only — **requires review by a qualified process
   engineer before any procurement**.
 - No process simulation, heat/mass balance, or pressure-vessel design.
-- No real web search, supplier APIs, ASPEN integration, or external LLM calls.
+- No real web search, supplier APIs, or ASPEN integration. The optional ASI:One
+  LLM layer only phrases the deterministic results conversationally — it does
+  not select equipment or generate data.
 - Prices, lead times, and suppliers are mock placeholders.
 
 ## Possible future work
 
-The modular design is intended to later wrap into a Fetch.ai / uAgents system
-(coordinator agent + equipment specialist agents, ASI:One chat interface).
-This comes only after the local workflow is stable. See `docs/architecture.md`.
+- Split the single manager agent into specialist sub-agents (reactor,
+  separation, drying, supplier matching) communicating via uAgents messages.
+- Add human-in-the-loop "top-2" selection per unit operation.
+- Replace the mock databases with real, curated equipment/supplier data.
+
+See `docs/architecture.md` for the intended agent architecture.
