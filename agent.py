@@ -43,6 +43,48 @@ from uagents_core.contrib.protocols.chat import (  # noqa: E402
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SAMPLE_INPUT_PATH = os.path.join(PROJECT_ROOT, "data", "sample_input.json")
 
+# Optional ASI:One LLM layer. If an API key is set, the agent uses the LLM to
+# converse naturally on top of the deterministic analysis. If not, it falls
+# back to the rule-based replies, so the demo never breaks.
+ASI_ONE_API_KEY = os.environ.get("ASI_ONE_API_KEY", "").strip()
+_llm_client = None
+if ASI_ONE_API_KEY:
+    from openai import OpenAI
+
+    _llm_client = OpenAI(base_url="https://api.asi1.ai/v1", api_key=ASI_ONE_API_KEY)
+
+
+def llm_reply(grounding, user_text):
+    """Ask the ASI:One LLM to answer naturally, grounded in the analysis.
+
+    Returns None on any failure so the caller can fall back to a fixed reply.
+    """
+    if not _llm_client:
+        return None
+    system_prompt = (
+        "You are a process equipment selection assistant for early-stage "
+        "chemical process scale-up. A deterministic tool has ALREADY produced "
+        "the analysis below. Answer the user using ONLY this analysis - never "
+        "invent equipment, prices, suppliers, or numbers. Be concise, friendly, "
+        "and conversational. For a greeting, give a one or two sentence intro "
+        "and offer to analyze or show the demo - do NOT dump the whole report. "
+        "When giving recommendations, remind the user this is preliminary, "
+        "mock-data decision support.\n\n"
+        "=== ANALYSIS (ground truth) ===\n{}".format(grounding)
+    )
+    try:
+        response = _llm_client.chat.completions.create(
+            model="asi1",
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_text or "hello"},
+            ],
+            max_tokens=1024,
+        )
+        return str(response.choices[0].message.content)
+    except Exception:
+        return None
+
 
 agent = Agent(
     name="equipment-selection-manager",
@@ -159,6 +201,27 @@ def parse_input_or_default(text):
     return load_json(SAMPLE_INPUT_PATH)
 
 
+GREETINGS = {
+    "hi", "hello", "hey", "help", "start", "menu", "yo", "sup",
+    "hola", "你好", "?", "hi!", "hello!",
+}
+
+
+def welcome_message():
+    """Short, friendly intro shown for greetings (instead of a wall of text)."""
+    return (
+        "Hi! I'm the **Process Equipment Selection Assistant**. I take a "
+        "lab-scale chemical synthesis brief and recommend pilot-scale "
+        "equipment, mock suppliers, and an RFQ draft (preliminary, mock-data "
+        "decision support).\n\n"
+        "Try one of these:\n"
+        "- **analyze** - run the built-in MnO2 hydrothermal demo case\n"
+        "- paste your own process brief as **JSON** to analyze a different case\n"
+        "- **rfq** - get the supplier inquiry draft for the last analysis\n\n"
+        "What would you like to do?"
+    )
+
+
 # ----------------------------------------------------------------------------
 # Chat protocol handlers.
 # ----------------------------------------------------------------------------
@@ -175,14 +238,33 @@ async def handle_message(ctx: Context, sender: str, msg: ChatMessage):
         if isinstance(item, TextContent):
             text += item.text
 
-    try:
-        process_input = parse_input_or_default(text)
-        result = run_workflow_from_dict(process_input)
+    stripped = text.strip()
+    lowered = stripped.lower()
+    store_key = "last_input:{}".format(sender)
 
-        if text.strip().lower() == "rfq":
+    try:
+        if lowered == "rfq":
+            # Keep RFQ deterministic so the exact inquiry wording is preserved.
+            last = ctx.storage.get(store_key)
+            process_input = json.loads(last) if last else load_json(SAMPLE_INPUT_PATH)
+            result = run_workflow_from_dict(process_input)
             reply = format_rfq_reply(result)
         else:
-            reply = format_chat_report(process_input, result)
+            # Run the deterministic analysis (JSON brief if provided, else the
+            # built-in MnO2 demo case) and use it as ground truth.
+            process_input = parse_input_or_default(text)
+            ctx.storage.set(store_key, json.dumps(process_input))
+            result = run_workflow_from_dict(process_input)
+            report = format_chat_report(process_input, result)
+
+            # If an LLM is configured, let it answer naturally grounded on the
+            # report. Otherwise fall back to fixed, rule-based replies.
+            reply = llm_reply(report, stripped)
+            if reply is None:
+                if not stripped or lowered in GREETINGS:
+                    reply = welcome_message()
+                else:
+                    reply = report
     except Exception:
         ctx.logger.exception("Error running workflow")
         reply = "Sorry, I could not process that request."
