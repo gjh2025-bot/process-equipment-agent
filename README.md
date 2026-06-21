@@ -1,4 +1,6 @@
-# Process Equipment Selection Assistant
+# ScalePilot
+
+Process Equipment Selection Assistant for Early Process Scale-Up
 
 A local-first engineering prototype that turns a lab-scale process brief into a
 **preliminary equipment recommendation report**. The demo case is the scale-up
